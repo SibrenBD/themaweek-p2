@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.container {
+    margin: auto;
+    width: 600px;
+    height: 800px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: 1fr 100px;
+}
+
+.circles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.circles div {
+    height: 50px;
+    width: 50px;
+}

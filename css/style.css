@@ -24,6 +24,17 @@ body {
 }
 
 .circles div {
-    height: 50px;
-    width: 50px;
+    margin: auto;
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+.circle-1 {
+    background-color: lightskyblue;
+}
+
+.circle-2 {
+    background-color: lightgray;
 }

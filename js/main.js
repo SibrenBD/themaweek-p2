@@ -1,10 +1,12 @@
 
+// werking van de buttons
+
 const c1 = document.querySelector(".c1");
 const c2 = document.querySelector(".c2");
 const c3 = document.querySelector(".c3");
 const c4 = document.querySelector(".c4");
 
-window.addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "d":
             console.log("bruh");
@@ -13,7 +15,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "f":
             console.log("bruh");
@@ -22,7 +24,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "j":
             console.log("bruh");
@@ -31,7 +33,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.addEventListener("keydown", function(event) {
+window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "k":
             console.log("bruh");
@@ -40,7 +42,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.addEventListener("keyup", function(event) {
+window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "d":
             console.log("bruh");
@@ -49,7 +51,7 @@ window.addEventListener("keyup", function(event) {
     }
 });
 
-window.addEventListener("keyup", function(event) {
+window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "f":
             console.log("bruh");
@@ -58,7 +60,7 @@ window.addEventListener("keyup", function(event) {
     }
 });
 
-window.addEventListener("keyup", function(event) {
+window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "j":
             console.log("bruh");
@@ -67,7 +69,7 @@ window.addEventListener("keyup", function(event) {
     }
 });
 
-window.addEventListener("keyup", function(event) {
+window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "k":
             console.log("bruh");
@@ -75,3 +77,18 @@ window.addEventListener("keyup", function(event) {
             break;
     }
 });
+
+
+function dropNote() {
+    
+}
+const note = document.querySelector(".note");
+let posY = 10;
+let frame;
+frame = setInterval(function () {
+    if (posY > 705) {
+        clearInterval(frame);
+    }
+    note.style.top = posY + "px";
+    posY += 4;
+}, 10)

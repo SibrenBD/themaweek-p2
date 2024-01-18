@@ -24,6 +24,10 @@ body {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.note-spawn div {
+    position: relative;
+}
+
 .note {
     margin: auto;
     position: relative;

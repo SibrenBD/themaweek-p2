@@ -76,14 +76,16 @@ const noteSpawn = document.querySelector(".note-spawn");
 setTimeout(dropNote, 2000);
 
 function dropNote() {
+    let number = 3;
+    const noteContainer = document.querySelector(`.note-${number}-c`);
     const note = document.createElement("div");
     note.className = "note";
-    noteSpawn.appendChild(note);
+    noteContainer.appendChild(note);
 
     let posY = 10;
     let frame;
     frame = setInterval(function () {
-        if (posY > 694) {
+        if (posY > 705) {
             clearInterval(frame);
         }
         note.style.top = posY + "px";

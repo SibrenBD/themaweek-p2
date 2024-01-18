@@ -9,7 +9,6 @@ const c4 = document.querySelector(".c4");
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "d":
-            console.log("bruh");
             c1.style.backgroundColor = "black";
             break;
     }
@@ -18,7 +17,6 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "f":
-            console.log("bruh");
             c2.style.backgroundColor = "black";
             break;
     }
@@ -27,7 +25,6 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "j":
-            console.log("bruh");
             c3.style.backgroundColor = "black";
             break;
     }
@@ -36,7 +33,6 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "k":
-            console.log("bruh");
             c4.style.backgroundColor = "black";
             break;
     }
@@ -45,7 +41,6 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "d":
-            console.log("bruh");
             c1.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -54,8 +49,7 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "f":
-            console.log("bruh");
-            c2.style.backgroundColor = "lightskyblue";
+            c2.style.backgroundColor = "lightgray";
             break;
     }
 });
@@ -63,7 +57,6 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "j":
-            console.log("bruh");
             c3.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -72,23 +65,31 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "k":
-            console.log("bruh");
-            c4.style.backgroundColor = "lightskyblue";
+            c4.style.backgroundColor = "lightgray";
             break;
     }
 });
 
 
+
+const noteSpawn = document.querySelector(".note-spawn");
+setTimeout(dropNote, 2000);
+
 function dropNote() {
-    
+    const note = document.createElement("div");
+    note.className = "note";
+    noteSpawn.appendChild(note);
+
+    let posY = 10;
+    let frame;
+    frame = setInterval(function () {
+        if (posY > 694) {
+            clearInterval(frame);
+        }
+        note.style.top = posY + "px";
+        posY += 4;
+    }, 10)
 }
-const note = document.querySelector(".note");
-let posY = 10;
-let frame;
-frame = setInterval(function () {
-    if (posY > 705) {
-        clearInterval(frame);
-    }
-    note.style.top = posY + "px";
-    posY += 4;
-}, 10)
+
+
+// const note = document.querySelector(".note");

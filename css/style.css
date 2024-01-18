@@ -19,20 +19,20 @@ body {
     grid-template-rows: 100px 1fr 100px;
 }
 
-.note-container {
-    position: relative;
+.note-spawn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
-.note-container div {
-    position: absolute;
+.note {
+    margin: auto;
+    position: relative;
     top: 10px;
-    left: 35px;
     width: 80px;
     height: 80px;
     border: 2px solid black;
     border-radius: 100%;
 }
-
 
 .circles {
     display: grid;

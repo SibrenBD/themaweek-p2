@@ -25,12 +25,12 @@ body {
 }
 
 .note-spawn div {
+    border: 2px solid black;
     position: relative;
 }
 
 .note {
-    margin: auto;
-    position: relative;
+    position: absolute;
     top: 10px;
     width: 80px;
     height: 80px;

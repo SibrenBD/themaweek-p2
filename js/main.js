@@ -83,25 +83,61 @@ window.addEventListener("keyup", function (event) {
     }
 });
 
+window.addEventListener("keydown", function (event) {
+    if (event.key == "d") {
+        console.log("hwelo");
+    }
+});
 
+// alle coords van de noten
+
+const allNotes = [];
 
 const noteSpawn = document.querySelector(".note-spawn");
-setTimeout(dropNote, 2000);
+
+let drop;
+let dropTime;
+drop = setInterval(dropNote, 2000);
+let timer = 0;
+dropTime = setInterval(function () {
+    timer++;
+    if (timer == 5) {
+        clearInterval(drop);
+        clearInterval(dropTime);
+    }
+}, 2000)
 
 function dropNote() {
-    let number = 3;
-    const noteContainer = document.querySelector(`.note-${number}-c`);
+    let number = 4;
+    const body = document.querySelector("body");
     const note = document.createElement("div");
     note.className = "note";
-    noteContainer.appendChild(note);
+    body.appendChild(note);
+    switch (number) {
+        case 1:
+            note.style.left = 416 + "px";
+            break;
+        case 2:
+            note.style.left = 565 + "px";
+            break;
+        case 3:
+            note.style.left = 714 + "px";
+            break;
+        case 4:
+            note.style.left = 863 + "px";
+    }
 
     let posY = 10;
+    allNotes.push(posY);
+    let noteIndex = allNotes.length;
     let frame;
     frame = setInterval(function () {
-        if (posY > 705) {
+
+
+        if (posY > 785) {
             clearInterval(frame);
         }
         note.style.top = posY + "px";
-        posY += 4;
+        posY += 5;
     }, 10)
 }

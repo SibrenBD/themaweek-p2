@@ -89,26 +89,33 @@ window.addEventListener("keydown", function (event) {
     }
 });
 
+// muziekstuk
+
+const song = [1, 3, 2, 4, 1, 4 , 3, 3, 1];
+let songIndex = 0;
+
 // alle coords van de noten
 
-const allNotes = [];
+const allNotes1 = [];
+const allNotes2 = [];
+const allNotes3 = [];
+const allNotes4 = [];
 
-const noteSpawn = document.querySelector(".note-spawn");
 
 let drop;
 let dropTime;
-drop = setInterval(dropNote, 2000);
 let timer = 0;
+
+drop = setInterval(function() {dropNote(song[songIndex])}, 1000);
 dropTime = setInterval(function () {
     timer++;
-    if (timer == 5) {
+    if (timer == song.length) {
         clearInterval(drop);
         clearInterval(dropTime);
     }
-}, 2000)
+}, 1000)
 
-function dropNote() {
-    let number = 4;
+function dropNote(number) {
     const body = document.querySelector("body");
     const note = document.createElement("div");
     note.className = "note";
@@ -128,16 +135,49 @@ function dropNote() {
     }
 
     let posY = 10;
-    allNotes.push(posY);
-    let noteIndex = allNotes.length;
+    let noteIndex;
+    switch (number) {
+        case 1:
+            allNotes1.push(posY);
+            noteIndex = allNotes1.length - 1;
+            break;
+        case 2:
+            allNotes2.push(posY);
+            noteIndex = allNotes2.length - 1;
+            break;
+        case 3:
+            allNotes3.push(posY);
+            noteIndex = allNotes3.length - 1;
+            break;
+        case 4:
+            allNotes4.push(posY);
+            noteIndex = allNotes4.length - 1;
+    }
     let frame;
-    frame = setInterval(function () {
 
+    // animatie
+    frame = setInterval(function () {
 
         if (posY > 785) {
             clearInterval(frame);
         }
+
         note.style.top = posY + "px";
         posY += 5;
+        // het bijhouden van alle posities
+        switch (number) {
+            case 1:
+                allNotes1[noteIndex] = posY;
+                break;
+            case 2:
+                allNotes2[noteIndex] = posY;
+                break;
+            case 3:
+                allNotes3[noteIndex] = posY;
+                break;
+            case 4:
+                allNotes4[noteIndex] = posY;
+        }
     }, 10)
+    songIndex++;
 }

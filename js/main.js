@@ -15,6 +15,7 @@ window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "d":
             key1d = true;
+            console.log(key1d);
             c1.style.backgroundColor = "black";
             break;
     }
@@ -51,6 +52,7 @@ window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "d":
             key1d = false;
+            console.log(key1d);
             c1.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -167,15 +169,27 @@ function dropNote(number) {
         // het bijhouden van alle posities
         switch (number) {
             case 1:
+                if (key1d == true) {
+                    note.remove();
+                }
                 allNotes1[noteIndex] = posY;
                 break;
             case 2:
+                if (key2d == true) {
+                    note.remove();
+                }
                 allNotes2[noteIndex] = posY;
                 break;
             case 3:
+                if (key3d == true) {
+                    note.remove();
+                }
                 allNotes3[noteIndex] = posY;
                 break;
             case 4:
+                if (key4d == true) {
+                    note.remove();
+                }   
                 allNotes4[noteIndex] = posY;
         }
     }, 10)

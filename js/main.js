@@ -20,7 +20,12 @@ let pos4;
 
 // punten
 
+const score = document.querySelector(".score");
 let points = 0;
+
+function displayPoints() {
+    score.innerHTML = "Score: " + points;
+}
 
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
@@ -30,7 +35,7 @@ window.addEventListener("keydown", function (event) {
             if (pos1 < 820 && pos1 > 745) {
                 note1.remove();
                 points++;
-                console.log(points);
+                displayPoints();
             }
             break;
     }
@@ -44,7 +49,7 @@ window.addEventListener("keydown", function (event) {
             if (pos2 < 820 && pos2 > 745) {
                 note2.remove();
                 points++;
-                console.log(points);
+                displayPoints();
             }
             break;
     }
@@ -58,7 +63,7 @@ window.addEventListener("keydown", function (event) {
             if (pos3 < 820 && pos3 > 745) {
                 note3.remove();
                 points++;
-                console.log(points);
+                displayPoints();
             }
             break;
     }
@@ -72,7 +77,7 @@ window.addEventListener("keydown", function (event) {
             if (pos4 < 820 && pos4 > 745) {
                 note4.remove();
                 points++;
-                console.log(points);
+                displayPoints();
             }
             break;
     }
@@ -140,7 +145,7 @@ dropTime = setInterval(function () {
         clearInterval(drop);
         clearInterval(dropTime);
     }
-}, 1000)
+}, 1000);
 
 function dropNote(number) {
     const body = document.querySelector("body");
@@ -150,19 +155,19 @@ function dropNote(number) {
     switch (number) {
         case 1:
             note1 = note;
-            note.style.left = 416 + "px";
+            note.style.left = 698 + "px";
             break;
         case 2:
             note2 = note;
-            note.style.left = 565 + "px";
+            note.style.left = 847 + "px";
             break;
         case 3:
             note3 = note;
-            note.style.left = 714 + "px";
+            note.style.left = 996 + "px";
             break;
         case 4:
             note4 = note;
-            note.style.left = 863 + "px";
+            note.style.left = 1145 + "px";
     }
 
     // animatie

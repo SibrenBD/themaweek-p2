@@ -11,12 +11,26 @@ let key2d = false;
 let key3d = false;
 let key4d = false;
 
+// posities van de noten
+
+let pos1;
+let pos2;
+let pos3;
+let pos4;
+
+// punten
+
+let points = 0;
+
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "d":
             key1d = true;
-            console.log(key1d);
             c1.style.backgroundColor = "black";
+            if (pos1 < 800 && pos1 > 770) {
+                points++;
+                console.log(points);
+            }
             break;
     }
 });
@@ -26,6 +40,10 @@ window.addEventListener("keydown", function (event) {
         case "f":
             key2d = true;
             c2.style.backgroundColor = "black";
+            if (pos2 < 800 && pos2 > 770) {
+                points++;
+                console.log(points);
+            }
             break;
     }
 });
@@ -35,6 +53,10 @@ window.addEventListener("keydown", function (event) {
         case "j":
             key3d = true;
             c3.style.backgroundColor = "black";
+            if (pos3 < 800 && pos3 > 770) {
+                points++;
+                console.log(points);
+            }
             break;
     }
 });
@@ -44,6 +66,10 @@ window.addEventListener("keydown", function (event) {
         case "k":
             key4d = true;
             c4.style.backgroundColor = "black";
+            if (pos4 < 800 && pos4 > 770) {
+                points++;
+                console.log(points);
+            }
             break;
     }
 });
@@ -52,7 +78,6 @@ window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "d":
             key1d = false;
-            console.log(key1d);
             c1.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -85,27 +110,16 @@ window.addEventListener("keyup", function (event) {
     }
 });
 
-window.addEventListener("keydown", function (event) {
-    if (event.key == "d") {
-        console.log("hwelo");
-    }
-});
 
 // muziekstuk
 
-const song = [1, 3, 2, 4, 1, 4, 3, 3, 1];
+const song = [1, 3, 2, 4, 1, 4, 3, 2, 1];
 let songIndex = 0;
 
-// punten
 
-let points = 0;
 
 // alle coords van de noten
 
-const allNotes1 = [];
-const allNotes2 = [];
-const allNotes3 = [];
-const allNotes4 = [];
 
 
 let drop;
@@ -142,18 +156,18 @@ function dropNote(number) {
 
     // animatie
 
+    pos1 = 0;
+    pos2 = 0;
+    pos3 = 0;
+    pos4 = 0;
+
     let posY = 10;
     let frame;
 
-
-    let check1 = 0;
-    let check2 = 0;
-    let check3 = 0;
-    let check4 = 0;
-
     frame = setInterval(function () {
 
-        if (posY > 785) {
+        if (posY > 885) {
+            note.remove();
             clearInterval(frame);
         }
 
@@ -161,41 +175,26 @@ function dropNote(number) {
         posY += 1;
 
 
-
         // raak check
         switch (number) {
             case 1:
-                if (key1d == true) {
-                    if (posY < 800 && posY > 770) {
-                        check1++;
-                    }
-                    note.remove();
-                }
+                pos1 = posY;
                 break;
             case 2:
-                if (key2d == true) {
-                    note.remove();
-                }
+                pos2 = posY;
                 break;
             case 3:
-                if (key3d == true) {
-                    note.remove();
-                }
+                pos3 = posY;
                 break;
             case 4:
-                if (key4d == true) {
-                    note.remove();
-                }
+                pos4 = posY;
+                break;
         }
 
 
 
-        
+
     }, 1)
-    if (check1 > 0) {
-        alert("poopop");
-        points++;
-    }
     songIndex++;
 
 

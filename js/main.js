@@ -27,7 +27,8 @@ window.addEventListener("keydown", function (event) {
         case "d":
             key1d = true;
             c1.style.backgroundColor = "black";
-            if (pos1 < 800 && pos1 > 770) {
+            if (pos1 < 820 && pos1 > 745) {
+                note1.remove();
                 points++;
                 console.log(points);
             }
@@ -40,7 +41,8 @@ window.addEventListener("keydown", function (event) {
         case "f":
             key2d = true;
             c2.style.backgroundColor = "black";
-            if (pos2 < 800 && pos2 > 770) {
+            if (pos2 < 820 && pos2 > 745) {
+                note2.remove();
                 points++;
                 console.log(points);
             }
@@ -53,7 +55,8 @@ window.addEventListener("keydown", function (event) {
         case "j":
             key3d = true;
             c3.style.backgroundColor = "black";
-            if (pos3 < 800 && pos3 > 770) {
+            if (pos3 < 820 && pos3 > 745) {
+                note3.remove();
                 points++;
                 console.log(points);
             }
@@ -66,7 +69,8 @@ window.addEventListener("keydown", function (event) {
         case "k":
             key4d = true;
             c4.style.backgroundColor = "black";
-            if (pos4 < 800 && pos4 > 770) {
+            if (pos4 < 820 && pos4 > 745) {
+                note4.remove();
                 points++;
                 console.log(points);
             }
@@ -113,14 +117,17 @@ window.addEventListener("keyup", function (event) {
 
 // muziekstuk
 
-const song = [1, 3, 2, 4, 1, 4, 3, 2, 1];
+const song = [1, 4, 2, 3, 1, 4, 2, 3, 1, 4, 2, 3, 1, 4, 2];
 let songIndex = 0;
 
+// om de noot elementen te gebruiken
 
+let note1;
+let note2;
+let note3;
+let note4;
 
 // alle coords van de noten
-
-
 
 let drop;
 let dropTime;
@@ -142,15 +149,19 @@ function dropNote(number) {
     body.appendChild(note);
     switch (number) {
         case 1:
+            note1 = note;
             note.style.left = 416 + "px";
             break;
         case 2:
+            note2 = note;
             note.style.left = 565 + "px";
             break;
         case 3:
+            note3 = note;
             note.style.left = 714 + "px";
             break;
         case 4:
+            note4 = note;
             note.style.left = 863 + "px";
     }
 

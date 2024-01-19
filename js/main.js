@@ -6,9 +6,15 @@ const c2 = document.querySelector(".c2");
 const c3 = document.querySelector(".c3");
 const c4 = document.querySelector(".c4");
 
+let key1d = false;
+let key2d = false;
+let key3d = false;
+let key4d = false;
+
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "d":
+            key1d = true;
             c1.style.backgroundColor = "black";
             break;
     }
@@ -17,6 +23,7 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "f":
+            key2d = true;
             c2.style.backgroundColor = "black";
             break;
     }
@@ -25,6 +32,7 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "j":
+            key3d = true;
             c3.style.backgroundColor = "black";
             break;
     }
@@ -33,6 +41,7 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "k":
+            key4d = true;
             c4.style.backgroundColor = "black";
             break;
     }
@@ -41,6 +50,7 @@ window.addEventListener("keydown", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "d":
+            key1d = false;
             c1.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -49,6 +59,7 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "f":
+            key2d = false;
             c2.style.backgroundColor = "lightgray";
             break;
     }
@@ -57,6 +68,7 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "j":
+            key3d = false;
             c3.style.backgroundColor = "lightskyblue";
             break;
     }
@@ -65,6 +77,7 @@ window.addEventListener("keyup", function (event) {
 window.addEventListener("keyup", function (event) {
     switch (event.key) {
         case "k":
+            key4d = false;
             c4.style.backgroundColor = "lightgray";
             break;
     }
@@ -92,6 +105,3 @@ function dropNote() {
         posY += 4;
     }, 10)
 }
-
-
-// const note = document.querySelector(".note");
